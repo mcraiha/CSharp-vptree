@@ -11,8 +11,8 @@ using System;
 
 public delegate double CalculateDistance<T>(T item1, T item2);
 
-public class VpTree<T> {
-
+public class VpTree<T> 
+{
 	public VpTree()
 	{
 		this.rand = new Random(); // Used in BuildFromPoints
@@ -61,8 +61,8 @@ public class VpTree<T> {
 	{
 		public int index;
 		public double threshold;
-		public Node left;
-		public Node right;
+		public Node? left;
+		public Node? right;
 
 		public Node()
 		{
@@ -95,7 +95,7 @@ public class VpTree<T> {
 		}
 	}
 
-	private Node BuildFromPoints(int lowerIndex, int upperIndex)
+	private Node? BuildFromPoints(int lowerIndex, int upperIndex)
 	{
 		if (upperIndex == lowerIndex)
 		{
@@ -123,7 +123,7 @@ public class VpTree<T> {
 		return node;
 	}
 	
-	private void Search(Node node, T target, int numberOfResults, List<HeapItem> closestHits)
+	private void Search(Node? node, T target, int numberOfResults, List<HeapItem> closestHits)
 	{
 		if (node == null)
 		{
