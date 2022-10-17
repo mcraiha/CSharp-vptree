@@ -7,7 +7,8 @@ namespace Example
 {
 	class MainClass
 	{
-		public struct Point {
+		public struct Point 
+		{
 			public string city;
 			public double latitude;
 			public double longitude;
@@ -25,7 +26,7 @@ namespace Example
 			}
 		};
 
-		public static void Main (string[] args)
+		public static void Main(string[] args)
 		{
 			Point[] points = null;
 			Stopwatch stopwatch = new Stopwatch();
@@ -71,7 +72,7 @@ namespace Example
 			stopwatch.Stop();
 			Console.WriteLine("VP tree search took: " + stopwatch.Elapsed);
 
-			Console.WriteLine("RESULTS:");
+			Console.WriteLine($"RESULTS for {ourtarget.latitude} {ourtarget.longitude}:");
 			for (int i = 0; i < resultsVpTree.Length; i++)
 			{
 				Console.WriteLine(resultsVpTree[i].city);
