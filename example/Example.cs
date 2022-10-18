@@ -28,7 +28,7 @@ namespace Example
 
 		public static void Main(string[] args)
 		{
-			Point[] points = null;
+			Point[]? points = null;
 			Stopwatch stopwatch = new Stopwatch();
 
 			stopwatch.Start();
@@ -50,11 +50,11 @@ namespace Example
 			stopwatch.Stop();
 			Console.WriteLine("Creation of VP tree search took: " + stopwatch.Elapsed);
 
-			Point[] resultsLinear = null;
-			Point[] resultsVpTree = null;
+			Point[]? resultsLinear = null;
+			Point[]? resultsVpTree = null;
 			
-			double[] distancesLinear = null;
-			double[] distancesVpTree = null;
+			double[]? distancesLinear = null;
+			double[]? distancesVpTree = null;
 
 			Point ourtarget = new Point()
 			{
@@ -86,7 +86,7 @@ namespace Example
 		{
 			List<Point> tempPoints = new List<Point> ();
 			System.IO.StreamReader tr = new System.IO.StreamReader("cities.txt"); // Adjust the path if needed
-			string line = tr.ReadLine();
+			string? line = tr.ReadLine();
 			line = tr.ReadLine(); // skip first line since it contains just headers and not actual data
 			while(line != null)
 			{
