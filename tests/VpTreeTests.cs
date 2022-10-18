@@ -41,12 +41,14 @@ public class Tests
 		VpTree<Point> vpTree = new VpTree<Point>();
 		List<Point> points = LoadCitiesFromZipFile();
 
-		Point[] resultsVpTree = null;
-		double[] distancesVpTree = null;
+		Point[]? resultsVpTree = null;
+		double[]? distancesVpTree = null;
 
-		Point ourtarget = new Point();
-		ourtarget.latitude = 43.466438;
-		ourtarget.longitude = -80.519185;
+		Point ourtarget = new Point() 
+		{
+			latitude = 43.466438,
+			longitude = -80.519185
+		};
 
 		const int howManyToSeek = 8;
 
@@ -71,7 +73,7 @@ public class Tests
 				{
 					using (StreamReader sr = new StreamReader(entry.Open()))
 					{
-						string line = sr.ReadLine();
+						string? line = sr.ReadLine();
 						line = sr.ReadLine(); // skip first line since it contains just headers and not actual data
 						while(line != null)
 						{
