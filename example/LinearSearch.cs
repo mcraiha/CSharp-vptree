@@ -9,8 +9,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-public class LinearSearch<T> {
-
+public sealed class LinearSearch<T> 
+{
 	// Empty constructor
 	public LinearSearch()
 	{
@@ -24,7 +24,7 @@ public class LinearSearch<T> {
 		this.calculateDistance = distanceCalculator;
 	}
 
-	private class HeapItem
+	private sealed class HeapItem
 	{
 		public int index;
 		public double dist;

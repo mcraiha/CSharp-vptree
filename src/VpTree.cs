@@ -11,7 +11,7 @@ using System;
 
 public delegate double CalculateDistance<T>(T item1, T item2);
 
-public class VpTree<T> 
+public sealed class VpTree<T> 
 {
 	public VpTree()
 	{
@@ -57,7 +57,7 @@ public class VpTree<T>
 
 	private CalculateDistance<T> calculateDistance;
 
-	private class Node // This cannot be struct because Node referring to Node causes error CS0523
+	private sealed class Node // This cannot be struct because Node referring to Node causes error CS0523
 	{
 		public int index;
 		public double threshold;
@@ -73,7 +73,7 @@ public class VpTree<T>
 		}
 	}
 
-	private class HeapItem
+	private sealed class HeapItem
 	{
 		public int index;
 		public double dist;
