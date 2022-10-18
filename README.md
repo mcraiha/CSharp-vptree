@@ -1,6 +1,9 @@
 # CSharp-vptree
 CSharp (C#) version of vantage-point tree (VP tree)
 
+## Build status
+[![.NET](https://github.com/mcraiha/CSharp-vptree/actions/workflows/dotnet.yml/badge.svg)](https://github.com/mcraiha/CSharp-vptree/actions/workflows/dotnet.yml)
+
 ## Introduction to this project
 This is one implementation of vantage-point tree (VP tree) for C#. As usual most of the error handling code has been stripped away, so YMMV.
 
@@ -37,5 +40,5 @@ vpTree.Search(targetPoint, 5, out resultsVpTree, out distancesVpTree);
 ```
 
 ## License
-This document and source code files are released into the public domain. See [PUBLICDOMAIN](PUBLICDOMAIN) file
+This document and source code files are released into the public domain. See [LICENSE](LICENSE) file
 
