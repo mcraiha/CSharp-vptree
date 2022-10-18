@@ -59,6 +59,21 @@ public class Tests
 		// Assert
 		Assert.AreEqual(howManyToSeek, resultsVpTree.Length);
 		Assert.AreEqual(howManyToSeek, distancesVpTree.Length);
+
+		Assert.IsTrue(resultsVpTree[0].city.Contains("Crediton"));
+		Assert.IsTrue(resultsVpTree[1].city.Contains("Thornhill"));
+		Assert.IsTrue(resultsVpTree[2].city.Contains("Newmarket"));
+		Assert.IsTrue(resultsVpTree[3].city.Contains("Port Colborne"));
+		Assert.IsTrue(resultsVpTree[4].city.Contains("North East"));
+		Assert.IsTrue(resultsVpTree[5].city.Contains("Belleview Heights"));
+		Assert.IsTrue(resultsVpTree[6].city.Contains("Girard"));
+		Assert.IsTrue(resultsVpTree[7].city.Contains("Stella Niagara"));
+
+		CollectionAssert.AllItemsAreUnique(distancesVpTree);
+		for (int i = 0; i < howManyToSeek - 2; i++)
+		{
+			Assert.Less(distancesVpTree[i], distancesVpTree[i + 1], "Distances are not in sorted order!");
+		}
 	}
 
 	private static List<Point> LoadCitiesFromZipFile()
