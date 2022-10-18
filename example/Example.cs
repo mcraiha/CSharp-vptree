@@ -9,9 +9,9 @@ namespace Example
 	{
 		public struct Point 
 		{
-			public string city;
-			public double latitude;
-			public double longitude;
+			public string city { get; init; }
+			public double latitude { get; init; }
+			public double longitude { get; init; }
 			
 			public Point(string cityName, double newLatitude, double newLongitude)
 			{
@@ -56,9 +56,11 @@ namespace Example
 			double[] distancesLinear = null;
 			double[] distancesVpTree = null;
 
-			Point ourtarget = new Point();
-			ourtarget.latitude = 43.466438; // Use same target as Steve Hanov did
-			ourtarget.longitude = -80.519185;
+			Point ourtarget = new Point()
+			{
+				latitude = 43.466438, // Use same target as Steve Hanov did
+				longitude = -80.519185
+			};
 
 			stopwatch.Reset();
 			stopwatch.Start();

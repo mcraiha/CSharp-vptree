@@ -11,9 +11,9 @@ public class Tests
 {
 	private struct Point 
 	{
-		public string city;
-		public double latitude;
-		public double longitude;
+		public string city { get; init; }
+		public double latitude { get; init; }
+		public double longitude { get; init; }
 		
 		public Point(string cityName, double newLatitude, double newLongitude)
 		{
