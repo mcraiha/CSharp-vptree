@@ -26,8 +26,8 @@ public sealed class LinearSearch<T>
 
 	private sealed class HeapItem
 	{
-		public int index;
-		public double dist;
+		public readonly int index;
+		public readonly double dist;
 		
 		public HeapItem(int index, double dist)
 		{
