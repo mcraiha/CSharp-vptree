@@ -88,7 +88,7 @@ namespace Example
 			System.IO.StreamReader tr = new System.IO.StreamReader("cities.txt"); // Adjust the path if needed
 			string? line = tr.ReadLine();
 			line = tr.ReadLine(); // skip first line since it contains just headers and not actual data
-			while(line != null)
+			while (line != null)
 			{
 				string[] splitted = line.Split(',');
 				tempPoints.Add(new Point(line, double.Parse(splitted[splitted.Length - 2], CultureInfo.InvariantCulture), double.Parse(splitted[splitted.Length - 1], CultureInfo.InvariantCulture)));
