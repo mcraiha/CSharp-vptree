@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BenchmarkDotNet" Version="0.13.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\src\vptree.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\example\LinearSearch.cs" />
+  </ItemGroup>
+
+    <ItemGroup>
+  <None Include="..\tests\testfiles\**" 
+        CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>
