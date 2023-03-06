@@ -5,10 +5,6 @@
 //
 // This is free and unencumbered software released into the public domain.
 
-using System.Collections;
-using System.Collections.Generic;
-using System;
-
 public delegate double CalculateDistance<T>(T item1, T item2);
 
 public sealed class VpTree<T> 
