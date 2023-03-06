@@ -49,7 +49,7 @@ public sealed class VpTree<T>
 	private T[] items;
 	private double tau;
 	private Node root;
-	private Random rand; // Used in BuildFromPoints
+	private readonly Random rand; // Used in BuildFromPoints
 
 	private CalculateDistance<T> calculateDistance;
 
