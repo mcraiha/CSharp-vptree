@@ -40,7 +40,7 @@ Which means that square root calculations for distance metrics are MANDATORY!
 
 ## Examples
 
-```
+```csharp
 VpTree<Point> vpTree = new VpTree<Point>();
 vpTree.Create(points, CalculatePointDistance);
 vpTree.Search(targetPoint, 5, out resultsVpTree, out distancesVpTree);
