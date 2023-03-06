@@ -21,7 +21,7 @@ This project is a C# port of C++ code that was given to the world by **Steve Han
 
 [VpTree.cs](https://github.com/mcraiha/CSharp-vptree/blob/master/src/VpTree.cs) has the VP tree related code.  
 [LinearSearch.cs](https://github.com/mcraiha/CSharp-vptree/blob/master/example/LinearSearch.cs) provides a basic linear search that you can use for performance comparision.  
-[Example.cs](https://github.com/mcraiha/CSharp-vptree/blob/master/exapmle/Example.cs) gives sample code and some performance measurements.  
+[Example.cs](https://github.com/mcraiha/CSharp-vptree/blob/master/example/Example.cs) gives sample code and some performance measurements.  
 [tests](https://github.com/mcraiha/CSharp-vptree/blob/master/tests) folder contains test cases.  
 
 You can get the full cities.txt file used in [Example.cs](https://github.com/mcraiha/CSharp-vptree/blob/master/Example.cs) and [Test.cs](https://github.com/mcraiha/CSharp-vptree/blob/master/Test.cs) from [here](http://stevehanov.ca/blog/cities.txt.gz). When extracted the size of the file is 125 806 517 bytes (~119MB). The cities.txt contains duplicate latitude and longitude entries for certain places, so order of results might vary on different runs.
