@@ -154,7 +154,7 @@ public sealed class VpTree<T>
 
 		double dist = this.calculateDistance(this.items[node.index], target);
 
-		/// We found entry with shorter distance
+		// We found entry with shorter distance
 		if (dist < this.tau)
 		{
 			if (closestHits.Count == numberOfResults)
