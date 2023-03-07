@@ -5,15 +5,34 @@
 //
 // This is free and unencumbered software released into the public domain.
 
+/// <summary>
+/// Calculate distance between two items
+/// </summary>
+/// <param name="item1">First item</param>
+/// <param name="item2">Second item</param>
+/// <typeparam name="T"></typeparam>
+/// <returns>Distance as double</returns>
 public delegate double CalculateDistance<T>(T item1, T item2);
 
+/// <summary>
+/// Class for VP Tree
+/// </summary>
+/// <typeparam name="T"></typeparam>
 public sealed class VpTree<T> 
 {
+	/// <summary>
+	/// Default and only constructor
+	/// </summary>
 	public VpTree()
 	{
 		this.rand = new Random(); // Used in BuildFromPoints
 	}
 
+	/// <summary>
+	/// Create tree
+	/// </summary>
+	/// <param name="newItems">New items</param>
+	/// <param name="distanceCalculator">Distance calculator method</param>
 	public void Create(T[] newItems, CalculateDistance<T> distanceCalculator)
 	{
 		this.items = newItems;
@@ -21,6 +40,13 @@ public sealed class VpTree<T>
 		this.root = this.BuildFromPoints(0, newItems.Length);
 	}
 
+	/// <summary>
+	/// Search for results
+	/// </summary>
+	/// <param name="target">Target</param>
+	/// <param name="numberOfResults">Number of results wanted</param>
+	/// <param name="results">Results (nearest one is the first item)</param>
+	/// <param name="distances">Distances</param>
 	public void Search(T target, int numberOfResults, out T[] results, out double[] distances)
 	{
 		List<HeapItem> closestHits = new List<HeapItem>();
