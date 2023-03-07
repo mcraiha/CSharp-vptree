@@ -5,6 +5,9 @@ CSharp (C#) version of vantage-point tree (VP tree)
 ## Build status
 [![.NET](https://github.com/mcraiha/CSharp-vptree/actions/workflows/dotnet.yml/badge.svg)](https://github.com/mcraiha/CSharp-vptree/actions/workflows/dotnet.yml)
 
+## Nuget
+[vptree](https://www.nuget.org/packages/vptree/)
+
 ## Introduction to this project
 
 This is one implementation of vantage-point tree (VP tree) for C#. As usual most of the error handling code has been stripped away, so YMMV.
