@@ -22,7 +22,7 @@ So VP tree (once created) can be used to find data that is distance-wise near ce
 
 This project is a C# port of C++ code that was given to the world by **Steve Hanov** in his [blog](http://stevehanov.ca/blog/index.php?id=130). 
 
-[VpTree.cs](https://github.com/mcraiha/CSharp-vptree/blob/master/src/VpTree.cs) has the VP tree related code.  
+[VpTree.cs](https://github.com/mcraiha/CSharp-vptree/blob/master/src/VpTree.cs) has the VP tree related code (you can copy + paste this file to your project).  
 [LinearSearch.cs](https://github.com/mcraiha/CSharp-vptree/blob/master/example/LinearSearch.cs) provides a basic linear search that you can use for performance comparision.  
 [Example.cs](https://github.com/mcraiha/CSharp-vptree/blob/master/example/Example.cs) gives sample code and some performance measurements.  
 [tests](https://github.com/mcraiha/CSharp-vptree/blob/master/tests) folder contains test cases.  
