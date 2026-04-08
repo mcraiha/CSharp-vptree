@@ -212,7 +212,7 @@ public sealed class VpTree<T>
 		arr [index2] = temp;
 	}
 
-	private static void nth_element<T>(T[] array, int startIndex, int nthToSeek, int endIndex, Comparison<T> comparison)
+	private static void nth_element(T[] array, int startIndex, int nthToSeek, int endIndex, Comparison<T> comparison)
 	{
 		int from = startIndex; 
 		int to = endIndex;
