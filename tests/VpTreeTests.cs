@@ -40,7 +40,6 @@ public class Tests
 	public void TestWithSmallCitiesExample()
 	{
 		// Arrange
-		VpTree<Point> vpTree = new VpTree<Point>();
 		List<Point> points = LoadCitiesFromZipFile();
 
 		Point[]? resultsVpTree = null;
@@ -55,7 +54,7 @@ public class Tests
 		const int howManyToSeek = 8;
 
 		// Act
-		vpTree.Create(points.ToArray(), CalculatePointDistance);
+		VpTree<Point> vpTree = VpTree<Point>.Create(points.ToArray(), CalculatePointDistance);
 		vpTree.Search(ourtarget, howManyToSeek, out resultsVpTree, out distancesVpTree);
 
 		// Assert

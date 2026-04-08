@@ -4,6 +4,8 @@ using System.IO;
 using System.IO.Compression;
 using System.Collections.Generic;
 
+using VpTree;
+
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
 
@@ -45,17 +47,15 @@ public class MatchCounts
 		longitude = -80.519185
 	};
 
-	private VpTree<Point> vpTree = new VpTree<Point>();
+	private static readonly Point[] points = LoadCitiesFromZipFile().ToArray();
 
-	private LinearSearch<Point> linearSearch = new LinearSearch<Point>();	
+	private VpTree<Point> vpTree = VpTree<Point>.Create(points, CalculatePointDistance);
+
+	private LinearSearch<Point> linearSearch = LinearSearch<Point>.Create(points, CalculatePointDistance);	
 
 	public MatchCounts()
 	{
-		Point[] points = LoadCitiesFromZipFile().ToArray();
 
-		vpTree.Create(points, CalculatePointDistance);
-
-		linearSearch.Create(points, CalculatePointDistance);
 	}
 
 	#region One match

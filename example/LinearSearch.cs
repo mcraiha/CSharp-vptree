@@ -9,19 +9,23 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
+using VpTree;
+
 public sealed class LinearSearch<T> 
 {
-	// Empty constructor
-	public LinearSearch()
-	{
+	private readonly T[] items;
+	private readonly CalculateDistance<T> calculateDistance;
 
-	}
-
-	// Call Create before you do any Search
-	public void Create(T[] newItems, CalculateDistance<T> distanceCalculator)
+	private LinearSearch(T[] newItems, CalculateDistance<T> distanceCalculator)
 	{
 		this.items = newItems;
 		this.calculateDistance = distanceCalculator;
+	}
+
+	// Call Create before you do any Search
+	public static LinearSearch<T> Create(T[] newItems, CalculateDistance<T> distanceCalculator)
+	{
+		return new LinearSearch<T>(newItems, distanceCalculator);
 	}
 
 	private sealed class HeapItem
@@ -77,7 +81,4 @@ public sealed class LinearSearch<T>
 		results = returnResults.ToArray();
 		distances = returnDistance.ToArray();
 	}
-
-	private T[] items;
-	private CalculateDistance<T> calculateDistance;
 }

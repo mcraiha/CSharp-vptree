@@ -13,38 +13,49 @@ namespace VpTree;
 /// <param name="item1">First item</param>
 /// <param name="item2">Second item</param>
 /// <typeparam name="T"></typeparam>
-/// <returns>Distance as double</returns>
+/// <returns>Distance between two items as double</returns>
 public delegate double CalculateDistance<T>(T item1, T item2);
 
 /// <summary>
 /// Class for VP Tree
 /// </summary>
-/// <typeparam name="T"></typeparam>
+/// <typeparam name="T">Wanted type</typeparam>
 public sealed class VpTree<T> 
 {
+	private readonly T[] items;
+	private double tau;
+	private readonly Node? root;
+	private readonly Random rand; // Used in BuildFromPoints
+
+	private readonly CalculateDistance<T> calculateDistance;
+
 	/// <summary>
 	/// Default and only constructor
 	/// </summary>
-	public VpTree()
+	private VpTree(T[] newItems, CalculateDistance<T> distanceCalculator)
 	{
 		this.rand = new Random(); // Used in BuildFromPoints
-	}
 
-	/// <summary>
-	/// Create tree
-	/// </summary>
-	/// <param name="newItems">New items</param>
-	/// <param name="distanceCalculator">Distance calculator method</param>
-	public void Create(T[] newItems, CalculateDistance<T> distanceCalculator)
-	{
 		this.items = newItems;
 		this.calculateDistance = distanceCalculator;
 		this.root = this.BuildFromPoints(0, newItems.Length);
 	}
 
 	/// <summary>
+	/// Create a tree
+	/// </summary>
+	/// <param name="newItems">New items</param>
+	/// <param name="distanceCalculator">Distance calculator method</param>
+	/// <returns>VpTree</returns>
+	public static VpTree<T> Create(T[] newItems, CalculateDistance<T> distanceCalculator)
+	{
+		return new VpTree<T>(newItems, distanceCalculator);
+	}
+
+	/// <summary>
 	/// Search for results
 	/// </summary>
+	/// <remarks>This is not a thread safe method!</remarks>
 	/// <param name="target">Target</param>
 	/// <param name="numberOfResults">Number of results wanted</param>
 	/// <param name="results">Results (nearest one is the first item)</param>
@@ -73,13 +84,6 @@ public sealed class VpTree<T>
 		results = returnResults.ToArray();
 		distances = returnDistance.ToArray();
 	}
-
-	private T[] items;
-	private double tau;
-	private Node root;
-	private readonly Random rand; // Used in BuildFromPoints
-
-	private CalculateDistance<T> calculateDistance;
 
 	private sealed class Node // This cannot be struct because Node referring to Node causes error CS0523
 	{
