@@ -5,6 +5,8 @@
 //
 // This is free and unencumbered software released into the public domain.
 
+namespace VpTree;
+
 /// <summary>
 /// Calculate distance between two items
 /// </summary>

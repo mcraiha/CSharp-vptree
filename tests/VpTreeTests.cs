@@ -5,6 +5,8 @@ using System.IO;
 using System.IO.Compression;
 using System.Collections.Generic;
 
+using VpTree;
+
 namespace tests;
 
 public class Tests
