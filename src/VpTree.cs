@@ -57,12 +57,12 @@ public sealed class VpTree<T>
 	/// </summary>
 	/// <remarks>This is not a thread safe method!</remarks>
 	/// <param name="target">Target</param>
-	/// <param name="numberOfResults">Number of results wanted</param>
+	/// <param name="numberOfResults">Number of results wanted (must be 1 or greater)</param>
 	/// <param name="results">Results (nearest one is the first item)</param>
-	/// <param name="distances">Distances</param>
+	/// <param name="distances">Distances (nearest one is the first item)</param>
 	public void Search(T target, int numberOfResults, out T[] results, out double[] distances)
 	{
-		List<HeapItem> closestHits = new List<HeapItem>();
+		List<HeapItem> closestHits = new List<HeapItem>(numberOfResults);
 
 		// Reset tau to longest possible distance
 		this.tau = double.MaxValue;
@@ -70,19 +70,21 @@ public sealed class VpTree<T>
 		// Start search
 		Search(root, target, numberOfResults, closestHits);
 
-		// Temp arrays for return values
-		List<T> returnResults = new List<T>();
-		List<double> returnDistance = new List<double>();
+		// Arrays for return values
+		T[] returnResults = new T[numberOfResults];
+		double[] returnDistance = new double[numberOfResults];
 
 		// We have to reverse the order since we want the nearest object to be first in the array
+		int returnIndex = 0;
 		for (int i = numberOfResults - 1; i > -1; i--)
 		{
-			returnResults.Add(this.items[closestHits[i].index]);
-			returnDistance.Add(closestHits[i].dist);
+			returnResults[returnIndex] = this.items[closestHits[i].index];
+			returnDistance[returnIndex] = closestHits[i].dist;
+			returnIndex++;
 		}
 
-		results = returnResults.ToArray();
-		distances = returnDistance.ToArray();
+		results = returnResults;
+		distances = returnDistance;
 	}
 
 	private sealed class Node // This cannot be struct because Node referring to Node causes error CS0523
@@ -215,7 +217,7 @@ public sealed class VpTree<T>
 	{
 		T temp = arr[index1];
 		arr[index1] = arr[index2];
-		arr [index2] = temp;
+		arr[index2] = temp;
 	}
 
 	private static void nth_element(T[] array, int startIndex, int nthToSeek, int endIndex, Comparison<T> comparison)
