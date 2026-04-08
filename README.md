@@ -1,11 +1,13 @@
 # CSharp-vptree
 
-CSharp (C#) version of vantage-point tree (VP tree)
+Managed .NET (.NET 8 and .NET 10) version of vantage-point tree (VP tree)
 
 ## Build status
+
 [![.NET](https://github.com/mcraiha/CSharp-vptree/actions/workflows/dotnet.yml/badge.svg)](https://github.com/mcraiha/CSharp-vptree/actions/workflows/dotnet.yml)
 
 ## Nuget
+
 [vptree](https://www.nuget.org/packages/vptree/)
 
 ## Introduction to this project
@@ -44,8 +46,9 @@ Which means that square root calculations for distance metrics are MANDATORY!
 ## Examples
 
 ```csharp
-VpTree<Point> vpTree = new VpTree<Point>();
-vpTree.Create(points, CalculatePointDistance);
+using VpTree;
+
+VpTree<Point> vpTree = VpTree<Point>.Create(points, CalculatePointDistance);
 vpTree.Search(targetPoint, 5, out resultsVpTree, out distancesVpTree);
 ```
 
