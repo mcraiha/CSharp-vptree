@@ -49,7 +49,7 @@ Which means that square root calculations for distance metrics are MANDATORY!
 using VpTree;
 
 VpTree<Point> vpTree = VpTree<Point>.Create(points, CalculatePointDistance);
-vpTree.Search(targetPoint, 5, out resultsVpTree, out distancesVpTree);
+vpTree.Search(targetPoint, 5, out Point[] resultsVpTree, out double[] distancesVpTree);
 ```
 
 ## Benchmarks
