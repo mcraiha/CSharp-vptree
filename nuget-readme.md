@@ -1,6 +1,6 @@
 # CSharp-vptree
 
-Managed .NET (.NET 8 and .NET 10) version of vantage-point tree (VP tree)
+Managed .NET (.NET 10 and .NET 11) version of vantage-point tree (VP tree)
 
 ## How do I use this?
 

@@ -1,3 +1,7 @@
+## Version 1.0.0 (released 2026-11-20)
+- Support net11.0
+- Drop support for .NET 8 (**BREAKING**)
+
 ## Version 0.9.1 (released 2026-04-08)
 - Update for .NET 8/10
 - AOT compatible
