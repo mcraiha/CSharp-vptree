@@ -52,6 +52,8 @@ VpTree<Point> vpTree = VpTree<Point>.Create(points, CalculatePointDistance);
 vpTree.Search(targetPoint, 5, out Point[] resultsVpTree, out double[] distancesVpTree);
 ```
 
+or see [Example.cs](example/Example.cs)
+
 ## Benchmarks
 
 You can run benchmarks (which compare vptree and linear search) by moving to [benchmarks](benchmarks) folder and running following command
